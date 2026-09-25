@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartQuiz AI - Générateur de Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🧠</span>
+                    <h1>SmartQuiz AI</h1>
+                </div>
+                <p class="tagline">Transformez vos cours en quiz interactifs</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Step 1: Text Input Section -->
+            <section id="step1" class="step active">
+                <div class="step-header">
+                    <span class="step-number">1</span>
+                    <h2>Importez votre cours</h2>
+                </div>
+                
+                <div class="input-section">
+                    <label for="courseText">Collez le texte de votre cours :</label>
+                    <textarea 
+                        id="courseText" 
+                        class="course-textarea"
+                        placeholder="Collez votre texte de cours ici... Vous pouvez aussi utiliser l'exemple Alan Turing ci-dessous."
+                        rows="8"
+                    ></textarea>
+                    
+                    <div class="button-group">
+                        <button id="useExampleBtn" class="btn btn-secondary">
+                            📚 Utiliser l'exemple Alan Turing
+                        </button>
+                        <button id="generateQuestionsBtn" class="btn btn-primary" disabled>
+                            ✨ Générer 5 Questions QCM
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Demo Notice -->
+                <div class="info-box">
+                    <span class="info-icon">ℹ️</span>
+                    <div>
+                        <strong>Mode Démonstration</strong>
+                        <p>Cette version utilise des questions pré-générées pour la démonstration. Pour générer des questions à partir de n'importe quel cours avec l'IA, consultez la section "API Integration" dans le README.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Quiz Section -->
+            <section id="step2" class="step">
+                <div class="step-header">
+                    <span class="step-number">2</span>
+                    <h2>Répondez aux questions</h2>
+                </div>
+                
+                <div id="quizContainer" class="quiz-container"></div>
+
+                <div class="quiz-navigation">
+                    <button id="submitQuizBtn" class="btn btn-primary">
+                        ✓ Soumettre le Quiz
+                    </button>
+                    <button id="resetBtn" class="btn btn-secondary">
+                        ↺ Recommencer
+                    </button>
+                </div>
+            </section>
+
+            <!-- Step 3: Results Section -->
+            <section id="step3" class="step">
+                <div class="step-header">
+                    <span class="step-number">3</span>
+                    <h2>Vos Résultats</h2>
+                </div>
+
+                <div class="results-container">
+                    <div class="score-card">
+                        <div class="score-display">
+                            <span id="scoreValue" class="score-number">0</span>
+                            <span class="score-text">/ 5</span>
+                        </div>
+                        <p id="scoreMessage" class="score-message"></p>
+                    </div>
+
+                    <div id="correctionsContainer" class="corrections-container"></div>
+
+                    <div class="button-group">
+                        <button id="newQuizBtn" class="btn btn-primary">
+                            🆕 Nouveau Quiz
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>SmartQuiz AI © 2024 - Pour améliorer l'apprentissage avec l'IA</p>
+            <p class="footer-info">Voir le README pour intégrer une véritable API d'IA</p>
+        </footer>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p>Génération des questions en cours...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
